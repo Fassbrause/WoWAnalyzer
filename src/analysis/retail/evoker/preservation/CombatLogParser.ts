@@ -33,6 +33,11 @@ import DreamFlight from './modules/talents/DreamFlight';
 import ExhilBurst from './modules/talents/ExhilBurst';
 import Stasis from './modules/talents/Stasis';
 import Lifebind from './modules/talents/Lifebind';
+import EnergyLoop from './modules/talents/EnergyLoop';
+import AlwaysBeCasting from './modules/core/AlwaysBeCasting';
+import FontOfMagic from './modules/talents/FontOfMagic';
+import EmeraldCommunion from './modules/talents/EmeraldCommunion';
+import SparkOfInsight from './modules/talents/SparkOfInsight';
 
 class CombatLogParser extends CoreCombatLogParser {
   static specModules = {
@@ -57,6 +62,7 @@ class CombatLogParser extends CoreCombatLogParser {
     checklist: Checklist,
 
     //core
+    alwaysBeCasting: AlwaysBeCasting,
     hotTrackerPrevoker: HotTrackerPrevoker,
     hotAttributor: HotAttributor,
 
@@ -80,6 +86,10 @@ class CombatLogParser extends CoreCombatLogParser {
     exhilBurst: ExhilBurst,
     stasis: Stasis,
     lifebind: Lifebind,
+    energyLoop: EnergyLoop,
+    fontOfMagic: FontOfMagic,
+    emeraldCommunion: EmeraldCommunion,
+    sparkOfInsight: SparkOfInsight,
   };
 }
 

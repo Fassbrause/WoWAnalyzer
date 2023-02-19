@@ -227,6 +227,30 @@ const spells = spellIndexableList({
     icon: 'spell_deathknight_armyofthedead',
   },
 
+  COMMANDER_OF_THE_DEAD_BUFF: {
+    id: 390264,
+    name: 'Commander of the Dead',
+    icon: 'spell_shadow_fumble',
+  },
+
+  MAGUS_SUMMON: {
+    id: 317776,
+    name: 'Army of the Damned',
+    icon: '"artifactability_unholydeathknight_deathsembrace',
+  },
+
+  APOC_SUMMON: {
+    id: 275430,
+    name: 'Army of the Dead',
+    icon: 'artifactability_unholydeathknight_deathsembrace',
+  },
+
+  ARMY_SUMMON: {
+    id: 42651,
+    name: 'Army of the Dead',
+    icon: 'spell_shadow_coneofsilence',
+  },
+
   DARK_TRANSFORMATION: {
     id: 63560,
     name: 'Dark Transformation',
@@ -275,6 +299,12 @@ const spells = spellIndexableList({
     icon: 'spell_yorsahj_bloodboil_purpleoil',
   },
 
+  PLAGUEBRINGER_BUFF: {
+    id: 390178,
+    name: 'Plaguebringer',
+    icon: 'spell_deathknight_plaguestrike',
+  },
+
   // scourge strike has one cast event but two damage events, the cast and physical
   // damage happen on id 55090, the shadow damage is on id 70890
   SCOURGE_STRIKE: {
@@ -293,6 +323,12 @@ const spells = spellIndexableList({
     id: 191587,
     name: 'Virulent Plague',
     icon: 'ability_creature_disease_02',
+  },
+
+  T29_VILE_INFUSION_BUFF: {
+    id: 394863,
+    name: 'Vile Infusion',
+    icon: 'spell_necro_deathsknell',
   },
 
   DARK_ARBITER_TALENT_GLYPH: {
@@ -323,6 +359,12 @@ const spells = spellIndexableList({
     id: 81340,
     name: 'Sudden Doom',
     icon: 'spell_shadow_painspike',
+  },
+
+  T29_GHOULISH_INFUSION: {
+    id: 394899,
+    name: 'Ghoulish Infusion',
+    icon: 'spell_necro_deathsknell',
   },
 
   // Shared:
@@ -406,6 +448,12 @@ const spells = spellIndexableList({
     id: 52212,
     name: 'Death and Decay',
     icon: 'spell_shadow_deathanddecay',
+  },
+
+  UNHOLY_GROUND_HASTE_BUFF: {
+    id: 374271,
+    name: 'Unholy Ground',
+    icon: 'ability_deathknight_desecratedground',
   },
 
   DEATH_STRIKE_HEAL: {

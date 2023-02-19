@@ -1,6 +1,7 @@
 import { Trans } from '@lingui/macro';
 import ITEMS from 'common/ITEMS/dragonflight/potions';
 import SPELLS from 'common/SPELLS/dragonflight/potions';
+import ALCHEMY from 'common/SPELLS/dragonflight/crafted/alchemy';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SPECS from 'game/SPECS';
 import { ItemLink } from 'interface';
@@ -93,7 +94,10 @@ const STRONG_POTIONS: number[] = [
   SPELLS.POTION_OF_FROZEN_FOCUS.id,
   SPELLS.RESIDUAL_NEURAL_CHANNELING_AGENT.id,
   SPELLS.DELICATE_SUSPENSION_OF_SPORES.id,
-  SPELLS.POTION_OF_CHILLED_CLARITY.id,
+  SPELLS.POTION_OF_SHOCKING_DISCLOSURE.id,
+  SPELLS.POTION_OF_CHILLED_CLARITY_R1.id,
+  SPELLS.POTION_OF_CHILLED_CLARITY_R2.id,
+  SPELLS.POTION_OF_CHILLED_CLARITY_R3.id,
 ];
 
 export const COMBAT_POTIONS: number[] = [
@@ -103,12 +107,17 @@ export const COMBAT_POTIONS: number[] = [
   SPELLS.POTION_OF_FROZEN_FOCUS.id,
   SPELLS.RESIDUAL_NEURAL_CHANNELING_AGENT.id,
   SPELLS.DELICATE_SUSPENSION_OF_SPORES.id,
-  SPELLS.POTION_OF_CHILLED_CLARITY.id,
+  SPELLS.POTION_OF_SHOCKING_DISCLOSURE.id,
+  SPELLS.POTION_OF_CHILLED_CLARITY_R1.id,
+  SPELLS.POTION_OF_CHILLED_CLARITY_R2.id,
+  SPELLS.POTION_OF_CHILLED_CLARITY_R3.id,
 ];
 
 const COMMON_MANA_POTION_AMOUNT = 11084;
+const ALACRITOUS_ALCHEMIST_STONE_CDR_MS = 10000;
 
 class PotionChecker extends Analyzer {
+  alacritousAlchemistStoneProcs = 0;
   potionsUsed = 0;
   weakPotionsUsed = 0;
   strongPotionsUsed = 0;
@@ -146,6 +155,9 @@ class PotionChecker extends Analyzer {
       this.potionsUsed += 1;
       this.strongPotionsUsed += 1;
     }
+    if (spellId === ALCHEMY.ALACRITOUS_ALCHEMIST_STONE.id) {
+      this.alacritousAlchemistStoneProcs += 1;
+    }
   }
 
   _cast(event: CastEvent | FilterCooldownInfoEvent) {
@@ -182,14 +194,27 @@ class PotionChecker extends Analyzer {
 
   _fightend() {
     if (debug) {
+      console.log(`Alacritous Alchemist Stone Procs: ${this.alacritousAlchemistStoneProcs}`);
+      console.log(
+        `Alacritous Alchemist Stone CDR: ${
+          this.alacritousAlchemistStoneProcs * ALACRITOUS_ALCHEMIST_STONE_CDR_MS
+        }`,
+      );
       console.log(`Potions Used: ${this.potionsUsed}`);
       console.log(`Max Potions: ${this.maxPotions}`);
     }
   }
 
   get maxPotions() {
-    //Adjusted the fight Duration by 25 seconds so that if you couldnt have gotten the full use of a second potion then it wont count it against you if you dont use it
-    return 1 + Math.floor((this.owner.fightDuration - 25000) / 300000);
+    const alacritiousCooldownReduction =
+      this.alacritousAlchemistStoneProcs * ALACRITOUS_ALCHEMIST_STONE_CDR_MS;
+    // Adjusted the fight Duration by 25 seconds so that if you couldnt have gotten the full use of
+    // a second potion then it wont count it against you if you dont use it
+    // Also adjusted the fight duration by the amount of CDR that Alacritious Alchemist Stone
+    // provided to account for additional potion usages
+    return (
+      1 + Math.floor((this.owner.fightDuration + alacritiousCooldownReduction - 25000) / 300000)
+    );
   }
 
   get potionsUsedThresholds() {

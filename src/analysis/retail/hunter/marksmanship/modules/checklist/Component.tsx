@@ -48,8 +48,6 @@ const MarksmanshipChecklist = (props: ChecklistProps & AplRuleProps) => {
         <AbilityRequirement spell={SPELLS.TRUESHOT.id} />
         <TalentCastEfficiencyRequirement talent={TALENTS_HUNTER.KILL_SHOT_SHARED_TALENT} />
 
-        <TalentCastEfficiencyRequirement talent={TALENTS_HUNTER.DOUBLE_TAP_TALENT} />
-
         <TalentCastEfficiencyRequirement talent={TALENTS_HUNTER.EXPLOSIVE_SHOT_TALENT} />
 
         <TalentCastEfficiencyRequirement talent={TALENTS_HUNTER.BARRAGE_TALENT} />
@@ -101,18 +99,6 @@ const MarksmanshipChecklist = (props: ChecklistProps & AplRuleProps) => {
               </>
             }
             thresholds={thresholds.callingTheShotsThresholds}
-          />
-        )}
-
-        {combatant.hasTalent(TALENTS_HUNTER.DEADEYE_TALENT) && (
-          <Requirement
-            name={
-              <>
-                <SpellLink id={SPELLS.AIMED_SHOT.id} /> recharge efficiency from{' '}
-                <SpellLink id={TALENTS_HUNTER.DEADEYE_TALENT.id} />
-              </>
-            }
-            thresholds={thresholds.deadEyeThresholds}
           />
         )}
 

@@ -16,7 +16,6 @@ import {
   WailingArrowPrepullNormalizer,
 } from 'analysis/retail/hunter/shared';
 import CoreCombatLogParser from 'parser/core/CombatLogParser';
-
 import Abilities from './modules/Abilities';
 import AplCheck from './modules/apl/AplCheck';
 import Buffs from './modules/Buffs';
@@ -26,7 +25,7 @@ import SpellUsable from './modules/core/SpellUsable';
 import AlwaysBeCasting from './modules/features/AlwaysBeCasting';
 import CooldownThroughputTracker from './modules/features/CooldownThroughputTracker';
 import DireCommand from './modules/talents/DireCommand';
-import BasicAttacks from './modules/pets/basicAttacksTracker';
+import BasicAttacks from './modules/pets/BasicAttacksTracker';
 import BeastMasteryFocusCapTracker from './modules/resources/BeastMasteryFocusCapTracker';
 import BeastMasteryFocusUsage from './modules/resources/BeastMasteryFocusUsage';
 import Focus from './modules/resources/Focus';
@@ -45,8 +44,15 @@ import Stampede from './modules/talents/Stampede';
 import Stomp from './modules/talents/Stomp';
 import ThrillOfTheHunt from './modules/talents/ThrillOfTheHunt';
 import MasterMarksman from '../shared/talents/MasterMarksman';
+import DireCommandNormalizer from './normalizers/DireCommandNormalizer';
+import Guide from './modules/guide/Guide';
+import FrenzyBuffStackTracker from './modules/guide/sections/rotation/FrenzyBuffStackTracker';
+import FrenzyBuffStackGraph from './modules/guide/sections/rotation/FrenzyBuffStackGraph';
+import FocusGraph from './modules/guide/sections/resources/FocusGraph';
+import BarbedShotNormalizer from './normalizers/BarbedShotNormalizer';
 
 class CombatLogParser extends CoreCombatLogParser {
+  static guide = Guide;
   static specModules = {
     globalCooldown: GlobalCooldown,
     spellUsable: SpellUsable,
@@ -59,6 +65,11 @@ class CombatLogParser extends CoreCombatLogParser {
     buffs: Buffs,
     cooldownThroughputTracker: CooldownThroughputTracker,
 
+    //Guide
+    frenzyBuffStackTracker: FrenzyBuffStackTracker,
+    frenzyBuffStackGraph: FrenzyBuffStackGraph,
+    focusGraph: FocusGraph,
+
     //Resources
     focusTracker: FocusTracker,
     focusDetails: FocusDetails,
@@ -69,6 +80,8 @@ class CombatLogParser extends CoreCombatLogParser {
 
     //Normalizers
     wailingArrowPrepullNormalizer: WailingArrowPrepullNormalizer,
+    direCommandNormalizer: DireCommandNormalizer,
+    barbedShotNormalizer: BarbedShotNormalizer,
 
     //DeathTracker
     deathTracker: DeathTracker,

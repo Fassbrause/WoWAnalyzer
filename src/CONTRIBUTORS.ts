@@ -347,6 +347,10 @@ export const Hartra344: Contributor = {
     },
   ],
 };
+export const ap2355: Contributor = {
+  nickname: 'Aulzahr',
+  github: 'ap2355',
+};
 export const strel: Contributor = {
   nickname: 'strel',
   github: 'unknown',
@@ -1302,6 +1306,19 @@ export const Carrottopp: Contributor = {
   ],
 };
 
+export const Toreole: Contributor = {
+  nickname: 'Toreole',
+  github: 'Toreole',
+  discord: 'Toreole#0001',
+  mains: [
+    {
+      name: 'Crowfield',
+      spec: SPECS.ARMS_WARRIOR,
+      link: 'https://worldofwarcraft.com/en-gb/character/eu/silvermoon/crowfield',
+    },
+  ],
+};
+
 export const Vexxra: Contributor = {
   nickname: 'Vexxra',
   github: 'vexxra',
@@ -2037,6 +2054,10 @@ export const Greedyhugs: Contributor = {
     },
   ],
 };
+export const Heisenburger: Contributor = {
+  nickname: 'Heisenburger',
+  github: 'Heisenburger505',
+};
 export const Lapideas: Contributor = {
   nickname: 'Lapideas',
   github: 'jeremyzahner',
@@ -2066,6 +2087,19 @@ export const Durpn: Contributor = {
       name: 'Durpn',
       spec: SPECS.WINDWALKER_MONK,
       link: 'https://worldofwarcraft.com/en-us/character/us/tichondrius/durpn',
+    },
+  ],
+};
+export const Klamuz: Contributor = {
+  nickname: 'Klamuz',
+  github: 'seagomezar',
+  discord: 'sebasgojs#1846',
+  avatar: avatar('klamuz-avatar.png'),
+  mains: [
+    {
+      name: 'Klamuz',
+      spec: SPECS.RETRIBUTION_PALADIN,
+      link: 'https://www.warcraftlogs.com/character/us/ragnaros/klamuz',
     },
   ],
 };

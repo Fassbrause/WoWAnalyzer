@@ -6,6 +6,15 @@ import { SpellLink } from 'interface';
 
 
 export default [
+  change(date(2023, 2, 6), <><SpellLink id={TALENTS_PRIEST.TWILIGHT_EQUILIBRIUM_TALENT.id}/> re enabled.</>, Hana),
+  change(date(2023, 2, 2), <><SpellLink id={TALENTS_PRIEST.ATONEMENT_TALENT.id}/> graph updated.</>, Hana),
+  change(date(2023, 1, 29), <><SpellLink id={TALENTS_PRIEST.ABYSSAL_REVERIE_TALENT.id}/> module added.</>, Hana),
+  change(date(2023, 1, 28), <><SpellLink id={TALENTS_PRIEST.EXPIATION_TALENT.id}/> bugfix.</>, Hana),
+  change(date(2023, 1, 27), <><SpellLink id={TALENTS_PRIEST.BLAZE_OF_LIGHT_TALENT.id}/> module no longer uses Atonement event.</>, Hana),
+  change(date(2023, 1, 27), <>Begun 10.0.5 changes, updated <SpellLink id={SPELLS.SINS_OF_THE_MANY.id}/> and<SpellLink id={TALENTS_PRIEST.SHADOW_COVENANT_TALENT.id}/>. Bugfix for Solace vs Shield discipline module. </>, Hana),
+  change(date(2023, 1, 22), <><SpellLink id={TALENTS_PRIEST.MINDGAMES_TALENT.id}/> module no longer uses Atonement event.</>, Hana),
+  change(date(2023, 1, 22), <><SpellLink id={TALENTS_PRIEST.HARSH_DISCIPLINE_TALENT.id}/> module no longer uses Atonement event.</>, Hana),
+  change(date(2023, 1, 21), <><SpellLink id={TALENTS_PRIEST.SHADOW_COVENANT_TALENT.id}/> module.</>, Hana),
   change(date(2023, 1, 15), <><SpellLink id={TALENTS_PRIEST.CASTIGATION_TALENT.id}/> module no longer uses Atonement event.</>, Hana),
   change(date(2023, 1, 15), <><SpellLink id={TALENTS_PRIEST.SCHISM_TALENT.id}/> module no longer uses Atonement event.</>, Hana),
   change(date(2023, 1, 14), <><SpellLink id={SPELLS.SINS_OF_THE_MANY.id}/> module no longer uses Atonement event.</>, Hana),
@@ -39,7 +48,7 @@ export default [
   change(date(2022, 10, 16), <>Fixed <SpellLink id={TALENTS_PRIEST.CONTRITION_TALENT.id}/>.</>, Hana),
   change(date(2022, 10, 15), <>Reorganised talents display</>, Hana),
   change(date(2022, 10, 15), <><SpellLink id={SPELLS.POWER_WORD_SHIELD.id}/> bugfixes. </>, Hana),
-  change(date(2022, 10, 15), <>Added <SpellLink id={TALENTS_PRIEST.STOLEN_PSYCHE_TALENT.id}/>.</>, Hana),
+  change(date(2022, 10, 15), <>Added Stolen Psyche.</>, Hana),
   change(date(2022, 10, 11), <>Added <SpellLink id={TALENTS_PRIEST.CRYSTALLINE_REFLECTION_TALENT.id}/> module showing it's damage breakdown.</>, Hana),
   change(date(2022, 10, 10), <>Added generic <SpellLink id={SPELLS.POWER_WORD_SHIELD.id}/> module which handles attribution of it's amplifiers</>, Hana),
   change(date(2022, 10, 8), <>Added <SpellLink id={TALENTS_PRIEST.AEGIS_OF_WRATH_TALENT.id}/>.</>, Hana),

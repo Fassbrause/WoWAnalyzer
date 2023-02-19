@@ -102,10 +102,8 @@ const fcReducer = (state: State, action: Action): State => {
 };
 
 const PlayerLoader = ({ children }: Props) => {
-  const [
-    { error, combatants, combatantsFightId, tanks, healers, dps, ranged, ilvl },
-    dispatchFC,
-  ] = useReducer(fcReducer, defaultState);
+  const [{ error, combatants, combatantsFightId, tanks, healers, dps, ranged, ilvl }, dispatchFC] =
+    useReducer(fcReducer, defaultState);
   const { report: selectedReport } = useReport();
   const { fight: selectedFight } = useFight();
   const { player: playerParam } = useParams();
@@ -284,10 +282,11 @@ const PlayerLoader = ({ children }: Props) => {
     getConfig(
       wclGameVersionToExpansion(selectedReport.gameVersion),
       combatant.specID,
-      player.type,
-      player.icon,
+      player,
+      combatant,
     );
   const build = combatant && getBuild(config, combatant);
+
   const missingBuild = config?.builds && !build;
   if (!player || hasDuplicatePlayers || !combatant || !config || missingBuild || combatant.error) {
     if (player) {

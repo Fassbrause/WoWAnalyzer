@@ -1,14 +1,16 @@
 import { GuideProps, Section, SubSection, useInfo } from 'interface/guide';
-import CombatLogParser from 'analysis/retail/demonhunter/vengeance/CombatLogParser';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS/demonhunter';
 import SPELLS from 'common/SPELLS/demonhunter';
-import { AlertWarning, SpellLink } from 'interface';
+import { AlertWarning, ResourceLink, SpellLink } from 'interface';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import ImmolationAuraVengeanceGuideSection from 'analysis/retail/demonhunter/shared/modules/spells/ImmolationAura/VengeanceGuideSection';
 import { t, Trans } from '@lingui/macro';
 import VerticallyAlignedToggle from 'interface/VerticallyAlignedToggle';
 import HideExplanationsToggle from 'interface/guide/components/HideExplanationsToggle';
+import FuryCapWaste from 'analysis/retail/demonhunter/shared/guide/FuryCapWaste';
+import CooldownUsage from 'parser/core/MajorCooldowns/CooldownUsage';
 
+import CombatLogParser from './CombatLogParser';
 import DemonSpikesSubSection from './modules/spells/DemonSpikes/GuideSection';
 import FieryBrandSubSection from './modules/talents/FieryBrand/GuideSection';
 import VoidReaverSubSection from './modules/talents/VoidReaver/GuideSection';
@@ -16,7 +18,12 @@ import MetamorphosisSubSection from './modules/spells/Metamorphosis/GuideSection
 import CooldownGraphSubsection from './guide/CooldownGraphSubSection';
 import MajorDefensives from './modules/core/MajorDefensives';
 import useVdhFeatureFlag from './guide/useVdhFeatureFlag';
-import FuryCapWaste from 'analysis/retail/demonhunter/shared/guide/FuryCapWaste';
+import {
+  GOOD_TIME_AT_FURY_CAP,
+  OK_TIME_AT_FURY_CAP,
+  PERFECT_TIME_AT_FURY_CAP,
+} from './modules/resourcetracker/FuryTracker';
+import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
@@ -50,13 +57,17 @@ function ResourceUsageSection({ modules }: GuideProps<typeof CombatLogParser>) {
       >
         <p>
           <Trans id="guide.demonhunter.vengeance.sections.resources.fury.summary">
-            Vengeance's primary resource is Fury. Typically, ability use will be limited by Fury,
-            not time. You should avoid capping Fury - lost Fury generation is lost DPS.
+            Vengeance's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should
+            avoid capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
           </Trans>
         </p>
         <FuryCapWaste
           percentAtCap={percentAtFuryCap}
           percentAtCapPerformance={percentAtFuryCapPerformance}
+          perfectTimeAtFuryCap={PERFECT_TIME_AT_FURY_CAP}
+          goodTimeAtFuryCap={GOOD_TIME_AT_FURY_CAP}
+          okTimeAtFuryCap={OK_TIME_AT_FURY_CAP}
           wasted={furyWasted}
         />
         {modules.furyGraph.plot}
@@ -183,12 +194,15 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       </p>
       <HideExplanationsToggle id="hide-explanations-cooldowns" />
       <CooldownGraphSubsection />
-      {info.combatant.hasTalent(TALENTS_DEMON_HUNTER.FEL_DEVASTATION_TALENT) &&
-        modules.felDevastation.guideBreakdown()}
-      {info.combatant.hasTalent(TALENTS_DEMON_HUNTER.THE_HUNT_TALENT) &&
-        modules.theHunt.vengeanceGuideCastBreakdown()}
-      {info.combatant.hasTalent(TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT) &&
-        modules.soulCarver.guideBreakdown()}
+      {info.combatant.hasTalent(TALENTS_DEMON_HUNTER.FEL_DEVASTATION_TALENT) && (
+        <CooldownUsage analyzer={modules.felDevastation} />
+      )}
+      {info.combatant.hasTalent(TALENTS_DEMON_HUNTER.THE_HUNT_TALENT) && (
+        <CooldownUsage analyzer={modules.theHunt} />
+      )}
+      {info.combatant.hasTalent(TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT) && (
+        <CooldownUsage analyzer={modules.soulCarver} />
+      )}
     </Section>
   );
 }

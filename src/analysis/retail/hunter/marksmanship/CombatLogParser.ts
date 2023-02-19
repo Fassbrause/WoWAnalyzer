@@ -43,8 +43,6 @@ import Trueshot from './modules/spells/Trueshot';
 import CallingTheShots from './modules/talents/CallingTheShots';
 import CarefulAim from './modules/talents/CarefulAim';
 import ChimaeraShot from './modules/talents/ChimaeraShot';
-import DeadEye from './modules/talents/DeadEye';
-import DoubleTap from './modules/talents/DoubleTap';
 import ExplosiveShot from '../shared/talents/ExplosiveShot';
 import LethalShots from './modules/talents/LethalShots';
 import LockAndLoad from './modules/talents/LockAndLoad';
@@ -54,6 +52,7 @@ import SteadyFocus from './modules/talents/SteadyFocus';
 import Streamline from './modules/talents/Streamline';
 import Volley from './modules/talents/Volley';
 import AimedShotPrepullNormalizer from './normalizers/AimedShotPrepullNormalizer';
+import Deathblow from './modules/talents/Deathblow';
 
 class CombatLogParser extends CoreCombatLogParser {
   static specModules = {
@@ -102,7 +101,6 @@ class CombatLogParser extends CoreCombatLogParser {
     lockAndLoad: LockAndLoad,
     barrage: Barrage,
     masterMarksman: MasterMarksman,
-    doubleTap: DoubleTap,
     callingTheShots: CallingTheShots,
     serpentSting: SerpentSting,
     steadyFocus: SteadyFocus,
@@ -111,10 +109,10 @@ class CombatLogParser extends CoreCombatLogParser {
     bornToBeWild: BornToBeWild,
     carefulAim: CarefulAim,
     chimaeraShot: ChimaeraShot,
-    deadEye: DeadEye,
     lethalShots: LethalShots,
     streamline: Streamline,
     wailingArrow: WailingArrow,
+    deathblow: Deathblow,
 
     //Shared Talents
     rejuvenatingWind: RejuvenatingWind,

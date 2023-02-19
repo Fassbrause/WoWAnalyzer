@@ -9,7 +9,7 @@ export default {
   contributors: [emallson],
   expansion: Expansion.Dragonflight,
   // The WoW client patch this spec was last updated.
-  patchCompatibility: '10.0.2',
+  patchCompatibility: '10.0.5',
   isPartial: false,
   // Explain the status of this spec's analysis here. Try to mention how complete it is, and perhaps show links to places users can learn more.
   // If this spec's analysis does not show a complete picture please mention this in the `<Warning>` component.
@@ -57,5 +57,7 @@ export default {
     ),
   // The path to the current directory (relative form project root). This is used for generating a GitHub link directly to your spec's code.
   path: __dirname,
-  guideDefault: true,
+  //Only show the guide since brewmaster no longer has a supported checklist
+  //This will also default to the guide
+  guideOnly: true,
 };

@@ -34,13 +34,16 @@ export enum SubPercentageStyle {
  *   For example, if a fight had a duration of 1000, the primary uptime was 500,
  *   and the sub uptime was 200, with 'absolute' the relative uptime will be listed as 20%
  *   and with 'relative' it will be listed as 40%
- *
+ * @param subIncludeUptimeText should 'uptime' be displayed after sub bar
+ *   if omitted, will not include
  */
 export default function uptimeBarSubStatistic(
   fight: Pick<WCLFight, 'start_time' | 'end_time'>,
   primaryBar: UptimeBarSpec,
   subBars: UptimeBarSpec[] = [],
   subPercentageStyle: SubPercentageStyle = SubPercentageStyle.RELATIVE,
+  subIncludeUptimeText: boolean = false,
+  statText: string = 'uptime',
 ): React.ReactNode {
   const primaryUptime = getCombinedUptime(primaryBar.uptimes);
   const totalFightTime = fight.end_time - fight.start_time;
@@ -51,7 +54,7 @@ export default function uptimeBarSubStatistic(
       <div className="flex main-bar">
         <div className="flex-sub bar-label">
           {getSubUptimeIcon(primaryBar)}
-          {formatPercentUptime(primaryUptime, totalFightTime)} <small>uptime</small>
+          {formatPercentUptime(primaryUptime, totalFightTime)} <small>{statText}</small>
         </div>
         <div className="flex-main chart">
           <UptimeBar
@@ -68,6 +71,12 @@ export default function uptimeBarSubStatistic(
           <div className="flex-sub bar-label" style={{ color: spec.color }}>
             {getSubUptimeIcon(spec)}{' '}
             {formatPercentUptime(getCombinedUptime(spec.uptimes), subBarUptimeReference)}
+            {subIncludeUptimeText && (
+              <>
+                {' '}
+                <small>{statText}</small>
+              </>
+            )}
           </div>
           <div className="flex-main chart">
             <UptimeBar

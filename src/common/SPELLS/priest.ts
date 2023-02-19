@@ -62,6 +62,7 @@ const spells = spellIndexableList({
     name: 'Mastery: Grace',
     icon: 'spell_holy_hopeandgrace',
   },
+
   PENANCE: {
     id: 47666,
     name: 'Penance',
@@ -73,6 +74,24 @@ const spells = spellIndexableList({
     id: 47750,
     name: 'Penance',
     icon: 'spell_holy_penance',
+    manaCost: 4000,
+  },
+  DARK_REPRIMAND_HEAL: {
+    id: 400187,
+    name: 'Dark Reprimand',
+    icon: 'inv_artifact_powerofthedarkside',
+    manaCost: 4000,
+  },
+  DARK_REPRIMAND_DAMAGE: {
+    id: 373130,
+    name: 'Dark Reprimand',
+    icon: 'inv_artifact_powerofthedarkside',
+    manaCost: 4000,
+  },
+  DARK_REPRIMAND_CAST: {
+    id: 400169,
+    name: 'Dark Reprimand',
+    icon: 'inv_artifact_powerofthedarkside',
     manaCost: 4000,
   },
   PENANCE_CAST: {
@@ -265,6 +284,31 @@ const spells = spellIndexableList({
     name: 'Halo',
     icon: 'spell_priest_divinestar',
   },
+  SHADOW_DIVINE_STAR_HEAL: {
+    id: 390981,
+    name: 'Divine Star',
+    icon: 'spell_priest_divinestar_shadow2',
+  },
+  SHADOW_DIVINE_STAR_DAMAGE: {
+    id: 390845,
+    name: 'Divine Star',
+    icon: 'spell_priest_divinestar_shadow2',
+  },
+  SHADOW_HALO_HEAL: {
+    id: 390971,
+    name: 'Halo',
+    icon: 'ability_priest_halo_shadow',
+  },
+  SHADOW_HALO_DAMAGE: {
+    id: 390964,
+    name: 'Halo',
+    icon: 'ability_priest_halo_shadow',
+  },
+  SHADOW_COVENANT_BUFF: {
+    id: 322105,
+    name: 'Shadow Covenant',
+    icon: 'spell_shadow_summonvoidwalker',
+  },
   CONTRITION_HEAL: {
     id: 270501,
     name: 'Contrition',
@@ -341,11 +385,15 @@ const spells = spellIndexableList({
     icon: 'ability_priest_halo',
     manaCost: 1350,
   },
-
   EXPIATION_DAMAGE: {
     id: 390844,
     name: 'Expiation',
     icon: 'spell-shadow-shadowpower',
+  },
+  BURNING_VEHEMENCE_DAMAGE: {
+    id: 400370,
+    name: 'Burning Vehemence',
+    icon: 'ability_paladin_sacredcleansing',
   },
 
   // Holy Priest Spells
@@ -743,6 +791,12 @@ const spells = spellIndexableList({
     icon: 'spell_fire_twilightflamebreath',
   },
 
+  MIND_FLAY_INSANITY_TALENT_BUFF: {
+    id: 391401,
+    name: 'Mind Flay: Insanity',
+    icon: 'spell_fire_twilightflamebreath',
+  },
+
   IDOL_OF_CTHUN_MIND_FLAY_DAMAGE: {
     id: 193473,
     name: 'Mind Flay',
@@ -801,6 +855,12 @@ const spells = spellIndexableList({
     id: 373320,
     name: 'Devoured Violence',
     icon: 'sha_spell_warlock_demonsoul',
+  },
+  //Shadow Tier
+  SHADOW_PRIEST_TIER_29_4_SET_BUFF: {
+    id: 394963,
+    name: 'Dark Reveries',
+    icon: 'inv_mace_1h_artifactheartofkure_d_05',
   },
 
   // Disc

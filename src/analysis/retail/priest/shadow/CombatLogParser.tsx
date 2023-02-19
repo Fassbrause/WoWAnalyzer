@@ -7,6 +7,9 @@ import {
 import MainCombatLogParser from 'parser/core/CombatLogParser';
 import ArcaneTorrent from 'parser/shared/modules/racials/bloodelf/ArcaneTorrent';
 import Channeling from 'parser/shared/normalizers/Channeling';
+import CancelledCasts from './modules/features/CancelledCasts';
+
+import Guide from 'analysis/retail/priest/shadow/Guide';
 
 import Abilities from './modules/Abilities';
 import Checklist from './modules/checklist/Module';
@@ -15,11 +18,9 @@ import GlobalCooldown from './modules/core/GlobalCooldown';
 import AlwaysBeCasting from './modules/features/AlwaysBeCasting';
 import Buffs from './modules/features/Buffs';
 import CooldownThroughputTracker from './modules/features/CooldownThroughputTracker';
-import ShadowyInsight from './modules/features/ShadowyInsight';
+import ShadowyInsight from './modules/spells/ShadowyInsight';
 import DotUptimes from './modules/features/DotUptimes';
-import SkippableCasts from './modules/features/SkippableCasts';
-import VoidBoltUsage from './modules/features/VoidBoltUsage';
-import Voidform from './modules/features/Voidform';
+import Voidform from './modules/spells/Voidform';
 import InsanityTracker from './modules/resources/InsanityTracker';
 import InsanityUsage from './modules/resources/InsanityUsage';
 import DevouringPlague from './modules/spells/DevouringPlague';
@@ -46,6 +47,9 @@ import IdolOfCthun from './modules/talents/IdolOfCthun';
 import IdolOfYoggSaron from './modules/talents/IdolOfYoggSaron';
 import IdolOfNzoth from './modules/talents/IdolOfNzoth';
 import IdolOfYshaarj from './modules/talents/IdolOfYshaarj';
+import InsanityGraph from './modules/guide/InsanityGraph';
+
+import FourSet from './modules/tier/Tier29ShadowPriest4Set';
 
 class CombatLogParser extends MainCombatLogParser {
   static specModules = {
@@ -54,10 +58,12 @@ class CombatLogParser extends MainCombatLogParser {
     cooldownThroughputTracker: CooldownThroughputTracker,
     channeling: Channeling,
     globalCooldown: GlobalCooldown,
+    cancelledCasts: CancelledCasts,
 
     // resources:
     insanityTracker: InsanityTracker,
     insanityUsage: InsanityUsage,
+    insanityGraph: InsanityGraph,
 
     // features:
     abilities: Abilities,
@@ -65,9 +71,7 @@ class CombatLogParser extends MainCombatLogParser {
     alwaysBeCasting: AlwaysBeCasting,
     checklist: Checklist,
     dotUptimes: DotUptimes,
-    skippableCasts: SkippableCasts,
     shadowyInsight: ShadowyInsight,
-    voidBoltUsage: VoidBoltUsage,
     voidform: Voidform,
     twinsOfTheSunPriestess: TwinsOfTheSunPriestess,
 
@@ -91,7 +95,7 @@ class CombatLogParser extends MainCombatLogParser {
     inescapableTorment: InescapableTorment,
     darkVoid: DarkVoid,
     auspiciousSpirits: AuspiciousSpirits,
-    mindsear: MindSear,
+    mindSear: MindSear,
     mindDevourer: MindDevourer,
     surgeOfDarkness: SurgeOfDarkness,
     deathspeaker: Deathspeaker,
@@ -106,8 +110,13 @@ class CombatLogParser extends MainCombatLogParser {
     // covenants:
     mindgames: Mindgames,
 
+    //Tier
+    fourSet: FourSet,
+
     arcaneTorrent: [ArcaneTorrent, { active: false }] as const,
   };
+
+  static guide = Guide;
 }
 
 export default CombatLogParser;

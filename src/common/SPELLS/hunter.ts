@@ -24,8 +24,18 @@ const spells = spellIndexableList({
     icon: 'ability_hunter_longevity',
   },
   DIRE_BEAST_SUMMON: {
+    id: 132764,
+    name: 'Dire Beast',
+    icon: 'ability_hunter_sickem',
+  },
+  DIRE_BEAST_GLYPHED: {
     id: 219199,
     name: 'Dire Beast',
+    icon: 'ability_hunter_sickem',
+  },
+  DIRE_PACK_BUFF: {
+    id: 378747,
+    name: 'Dire Pack',
     icon: 'ability_hunter_sickem',
   },
   STAMPEDE_DAMAGE: {
@@ -102,6 +112,11 @@ const spells = spellIndexableList({
     id: 321538,
     name: 'Bloodshed',
     icon: 'ability_hunter_killcommand',
+  },
+  CALL_OF_THE_WILD_TEMPORARY_PET_BUFF: {
+    id: 361582,
+    name: 'Call of the Wild',
+    icon: 'ability_hunter_pet_assist',
   },
   //endregion
 
@@ -206,11 +221,6 @@ const spells = spellIndexableList({
     name: 'Lone Wolf',
     icon: 'spell_hunter_lonewolf',
   },
-  DEAD_EYE_BUFF: {
-    id: 321461,
-    name: 'Dead Eye',
-    icon: 'buff_epichunter',
-  },
   STREAMLINE_BUFF: {
     id: 342076,
     name: 'Streamline',
@@ -225,6 +235,11 @@ const spells = spellIndexableList({
     id: 344121,
     name: 'Chimaera Shot',
     icon: 'ability_hunter_chimerashot2',
+  },
+  DEATHBLOW_BUFF: {
+    id: 378770,
+    name: 'Deathblow',
+    icon: 'ability_hunter_runningshot',
   },
   //endregion
 
@@ -424,6 +439,11 @@ const spells = spellIndexableList({
   //endregion
 
   //region Shared
+  KILL_COMMAND_SHARED_DAMAGE: {
+    id: 83381,
+    name: 'Kill Command',
+    icon: 'ability_hunter_killcommand',
+  },
   DEATH_CHAKRAM_DAMAGE: {
     id: 375893,
     icon: 'ability_maldraxxus_hunter',

@@ -107,8 +107,23 @@ const spells = spellIndexableList({
     name: 'Essence Font',
     icon: 'ability_monk_essencefont',
   },
+  SECRET_INFUSION_CRIT_BUFF: {
+    id: 388498,
+    name: 'Secret infusion',
+    icon: 'ability_monk_chibrew',
+  },
   SECRET_INFUSION_HASTE_BUFF: {
     id: 388497,
+    name: 'Secret infusion',
+    icon: 'ability_monk_chibrew',
+  },
+  SECRET_INFUSION_MASTERY_BUFF: {
+    id: 388499,
+    name: 'Secret infusion',
+    icon: 'ability_monk_chibrew',
+  },
+  SECRET_INFUSION_VERS_BUFF: {
+    id: 388500,
     name: 'Secret infusion',
     icon: 'ability_monk_chibrew',
   },
@@ -216,6 +231,41 @@ const spells = spellIndexableList({
     name: 'Lifecycles (Enveloping Mist)',
     icon: 'spell_monk_envelopingmist',
   },
+  SHEILUN_CLOUD_BUFF: {
+    id: 399510,
+    name: "Sheilun's Gift",
+    icon: 'inv_staff_2h_artifactshaohao_d_01',
+  },
+  LESSON_OF_DOUBT_BUFF: {
+    id: 400097,
+    name: 'Lesson of Doubt',
+    icon: 'sha_ability_warrior_bloodnova',
+  },
+  LESSON_OF_DESPAIR_BUFF: {
+    id: 400100,
+    name: 'Lesson of Despair',
+    icon: 'sha_ability_rogue_envelopingshadows',
+  },
+  LESSON_OF_FEAR_BUFF: {
+    id: 400103,
+    name: 'Lesson of Fear',
+    icon: 'sha_ability_rogue_bloodyeye_nightborne',
+  },
+  LESSON_OF_ANGER_BUFF: {
+    id: 400106,
+    name: 'Lesson of Anger',
+    icon: 'sha_ability_rogue_envelopingshadows_nightmare',
+  },
+  LESSON_OF_ANGER_DAMAGE: {
+    id: 400145,
+    name: 'Lesson of Anger',
+    icon: 'sha_ability_rogue_envelopingshadows_nightmare',
+  },
+  LESSON_OF_ANGER_HEAL: {
+    id: 400146,
+    name: 'Lesson of Anger',
+    icon: 'sha_ability_rogue_envelopingshadows_nightmare',
+  },
   SPIRIT_OF_THE_CRANE_BUFF: {
     id: 210803,
     name: 'Spirit of the Crane',
@@ -240,6 +290,11 @@ const spells = spellIndexableList({
     id: 343820,
     name: 'Invoke Chi-Ji, the Red Crane',
     icon: 'monk_stance_redcrane',
+  },
+  INVOKE_YULON_BUFF: {
+    id: 322118,
+    name: "Invoke Yu'lon, the Jade Serpent",
+    icon: 'ability_monk_dragonkick',
   },
   GUST_OF_MISTS_CHIJI: {
     id: 343819,
@@ -290,11 +345,6 @@ const spells = spellIndexableList({
     id: 388203,
     name: 'Faeline Stomp',
     icon: 'ability_ardenweald_monk',
-  },
-  BONEDUST_BREW_GUST_OF_MIST: {
-    id: 328748,
-    name: 'Bonedust Brew',
-    icon: 'ability_maldraxxus_monk',
   },
   NOURISHING_CHI_BUFF: {
     id: 387766,
@@ -518,6 +568,12 @@ const spells = spellIndexableList({
     id: 393786,
     name: 'Chi Surge',
     icon: 'ability_monk_chiexplosion',
+  },
+  // Tier 29 2-set bonus
+  BREWMASTERS_RHYTHM_BUFF: {
+    id: 394797,
+    name: "Brewmaster's Rhythm",
+    icon: 'ability_monk_standingkick',
   },
 
   // Windwalker Spells

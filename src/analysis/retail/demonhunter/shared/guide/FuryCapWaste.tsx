@@ -1,34 +1,40 @@
 import { Trans } from '@lingui/macro';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
-import { formatNumber } from 'common/format';
-import {
-  GOOD_TIME_AT_FURY_CAP,
-  OK_TIME_AT_FURY_CAP,
-  PERFECT_TIME_AT_FURY_CAP,
-} from 'analysis/retail/demonhunter/vengeance/modules/resourcetracker/FuryTracker';
-import PerformancePercentage from 'analysis/retail/demonhunter/shared/guide/PerformancePercentage';
+import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
+import { ResourceLink } from 'interface';
+
+import PerformancePercentage from './PerformancePercentage';
 
 interface Props {
   percentAtCap: number;
   percentAtCapPerformance: QualitativePerformance;
+  perfectTimeAtFuryCap: number;
+  goodTimeAtFuryCap: number;
+  okTimeAtFuryCap: number;
   wasted: number;
 }
-const FuryCapWaste = ({ percentAtCap, percentAtCapPerformance, wasted }: Props) => {
-  const furyWastedFormatted = formatNumber(wasted);
-
+const FuryCapWaste = ({
+  percentAtCap,
+  percentAtCapPerformance,
+  perfectTimeAtFuryCap,
+  goodTimeAtFuryCap,
+  okTimeAtFuryCap,
+  wasted,
+}: Props) => {
   return (
     <p>
       <Trans id="guide.demonhunter.sections.resources.fury.chart">
-        The chart below shows your Fury over the course of the encounter. You spent{' '}
+        The chart below shows your <ResourceLink id={RESOURCE_TYPES.FURY.id} /> over the course of
+        the encounter. You wasted{' '}
         <PerformancePercentage
           performance={percentAtCapPerformance}
-          perfectPercentage={PERFECT_TIME_AT_FURY_CAP}
-          goodPercentage={GOOD_TIME_AT_FURY_CAP}
-          okPercentage={OK_TIME_AT_FURY_CAP}
-          value={percentAtCap}
+          perfectPercentage={perfectTimeAtFuryCap}
+          goodPercentage={goodTimeAtFuryCap}
+          okPercentage={okTimeAtFuryCap}
+          percentage={percentAtCap}
+          flatAmount={wasted}
         />{' '}
-        of the encounter capped on Fury, leading to{' '}
-        <strong>{furyWastedFormatted} wasted Fury</strong>.
+        of your <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
       </Trans>
     </p>
   );

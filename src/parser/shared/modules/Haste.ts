@@ -1,6 +1,7 @@
 import { formatMilliseconds, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
-import { TALENTS_MAGE, TALENTS_PRIEST } from 'common/TALENTS';
+import CLASSIC_SPELLS from 'common/SPELLS/classic';
+import { TALENTS_DEATH_KNIGHT, TALENTS_MAGE, TALENTS_PRIEST } from 'common/TALENTS';
 import BLOODLUST_BUFFS from 'game/BLOODLUST_BUFFS';
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import Combatant from 'parser/core/Combatant';
@@ -56,6 +57,13 @@ class Haste extends Analyzer {
     [SPELLS.FURIOUS_GAZE.id]: 0.1, // Havoc DH haste buff from fully channeling a cast of Eye Beam
     //endregion
 
+    //region Death Knight Hate Buffs
+    [SPELLS.EMPOWER_RUNE_WEAPON.id]: 0.15,
+    [TALENTS_DEATH_KNIGHT.UNHOLY_ASSAULT_TALENT.id]: 0.3,
+    [SPELLS.T29_GHOULISH_INFUSION.id]: 0.08,
+    [SPELLS.UNHOLY_GROUND_HASTE_BUFF.id]: 0.05,
+    //endregion
+
     //region Druid Haste Buffs
     [SPELLS.STARLORD.id]: {
       hastePerStack: 0.04,
@@ -69,9 +77,15 @@ class Haste extends Analyzer {
     [SPELLS.STEADY_FOCUS_BUFF.id]: 0.07,
     //endregion
 
+    //region Paladin
+    [SPELLS.RELENTLESS_INQUISITOR_TALENT_BUFF.id]: {
+      hastePerStack: 0.01,
+    },
+
     //region Priest
     [TALENTS_PRIEST.POWER_INFUSION_TALENT.id]: 0.25,
     [SPELLS.BORROWED_TIME_BUFF.id]: 0.08,
+    [SPELLS.SHADOW_PRIEST_TIER_29_4_SET_BUFF.id]: 0.04,
     //endregion
 
     //region Mage
@@ -82,10 +96,18 @@ class Haste extends Analyzer {
     //region Monk
     [SPELLS.INVOKERS_DELIGHT_BUFF.id]: 0.33,
     [SPELLS.SECRET_INFUSION_HASTE_BUFF.id]: 0, // manually set in monk files
+    [SPELLS.LESSON_OF_FEAR_BUFF.id]: 0.25,
     //endregion
 
     //region Shaman
     [SPELLS.ELEMENTAL_BLAST_HASTE.id]: 0.03,
+    //endregion
+
+    //region CLASSIC
+    // Raids
+    [CLASSIC_SPELLS.SHADOW_CRASH.id]: 1, // Ulduar - General Vezax
+    [CLASSIC_SPELLS.SLAG_IMBUED.id]: 1, // Ulduar - Ignis
+    [CLASSIC_SPELLS.STARLIGHT.id]: 0.5, // Ulduar - Hodir
     //endregion
   };
 
